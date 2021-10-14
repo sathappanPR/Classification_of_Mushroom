@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Attack Analysis </title>
+    <link href="https://fonts.googleapis.com/css2?family=Akronim&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Akronim&family=Almendra+Display&family=Big+Shoulders+Display&family=Big+Shoulders+Inline+Display&family=IBM+Plex+Serif&family=Mate+SC&family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Akronim&family=Almendra+Display&family=Big+Shoulders+Display&family=Big+Shoulders+Inline+Display&family=IBM+Plex+Serif&family=Mate+SC&family=Roboto+Slab&display=swap" rel="stylesheet">
+</head>
+   
+
+<body>
+
+    <div class="banner-text">
+        <h2>MUSHROOMS ANALYSIS</h2>
+    </div>
+
+    <div class="container">
+        <div class="rows">
+        <div class="class">
+ 
+        <form action="{{ url_for('predict')}}" method="post">
+
+            
+
+            <h3> cap shape </h3>
+            <select name="cap_shape" id="cap_shape" required="required">
+                <option value="cap_shape">Select</option>
+                <option value="cap_shape">bell</option>
+                <option value="cap_shape">conical</option>
+                <option value="cap_shape">convex</option>
+                <option value="cap_shape">flat</option>
+                <option value="cap_shape">knobbed</option>
+                <option value="cap_shape">sunken</option>
+            </select>
+
+            <h3>cap surface</h3>
+            <select  name="cap_surface" id="cap_surface"  required="required" >
+                <option value="cap_surface">Select</option>
+                <option value="cap_surface">fibrous</option>
+                <option value="cap_surface">grooves</option>
+                <option value="cap_surface">scaly</option>
+                <option value="cap_surface">smooth</option>
+             </select>
+
+            
+            <h3>cap color</h3>
+            <select name="cap_color" id="cap_color" required="required">
+                <option value="cap_color">Select</option>
+                <option value="cap_color">brown</option>
+                <option value="cap_color">buff</option>
+                <option value="cap_color">cinnamon</option>
+                <option value="cap_color">gray</option>
+                <option value="cap_color">green</option>
+                <option value="cap_color">pink</option>
+                <option value="cap_color">purple</option>
+                <option value="cap_color">red</option>
+                <option value="cap_color">white</option>
+                <option value="cap_color">yellow</option>
+            </select>
+
+            <h3>bruises</h3>
+            <select name="bruises" id="bruises" required="required">
+                <option value="bruises">Select</option>
+                <option value="bruises">yes</option>
+                <option value="bruises">no</option>
+            </select>
+
+            <h3>odor</h3>
+            <select name="odor" id="odor" required="required">
+                <option value="odor">Select</option>
+                <option value="odor">almond</option>
+                <option value="odor">anise</option>
+                <option value="odor">creosote</option>
+                <option value="odor">fishy</option>
+                <option value="odor">foul</option>
+                <option value="odor">musty</option>
+                <option value="odor">pungent</option>
+                <option value="odor">spicy</option>
+                <option value="odor">none</option>
+            </select>
+
+            <h3>gill attachment</h3>
+            <select name="gill_attachment" id="gill_attachment" required="required">
+                <option value="gill_attachment">Select</option>
+                <option value="gill_attachment">attached</option>
+                <option value="gill_attachment">descending</option>
+                <option value="gill_attachment">free</option>
+                <option value="gill_attachment">notched</option>
+            </select>
+        </div>
+
+        <div class="class">
+
+
+            <h3>gill spacing</h3>
+            <select name="gill_spacing" id="gill_spacing" required="required">
+                <option value="gill_spacing">Select</option>
+                <option value="gill_spacing">close</option>
+                <option value="gill_spacing">crowded</option>
+                <option value="gill_spacing">distant</option>
+            </select>
+
+
+            <h3>gillsize</h3>
+            <select name="gill_size" id="gill_size" required="required">
+                <option value="gill_size">Select</option>
+                <option value="gill_size">broad</option>
+                <option value="gill_size">narrow</option>
+            </select>
+
+            <h3>gill color</h3>
+            <select name="gill_color" id="gill_color" required="required">
+                <option value="gill_color">Select</option>
+                <option value="gill_color">black</option>
+                <option value="gill_color">brown</option>
+                <option value="gill_color">buff</option>
+                <option value="gill_color">chocolate</option>
+                <option value="gill_color">chocolate</option>
+                <option value="gill_color">green</option>
+                <option value="gill_color">pink</option>
+                <option value="gill_color">purple</option>
+                <option value="gill_color">red</option>
+                <option value="gill_color">white</option>
+                <option value="gill_color">yellow</option>
+                <option value="gill_color">orange</option>
+            </select>
+
+
+            <h3>stalk shape</h3>
+            <select name="stalk_shape" id="stalk_shape" required="required">
+                <option value="stalk_shape">Select</option>
+                <option value="stalk_shape">enlarging</option>
+                <option value="stalk_shape">tapering</option>
+            </select>
+
+        
+       
+ 
+
+
+            <h3>stalk surface above ring</h3>
+            <select name="stalk_surface_above_ring" id="stalk_surface_above_ring" required="required">
+                <option value="stalk_surface_above_ring">Select</option>
+                <option value="stalk_surface-above_ring">fibrous</option>
+                <option value="stalk_surface_above_ring">scaly</option>
+                <option value="stalk_surface_above_ring">silky</option>
+                <option value="stalk_surface_above_ring">smooth</option>
+            </select>
+
+            <h3>stalk surface below ring</h3>
+            <select name="stalk_surface_below_ring" id="stalk_surface_below_ring" required="required">
+                <option value="stalk_surface_below_ring">Select</option>
+                <option value="stalk_surface_below_ring">fibrous</option>
+                <option value="stalk_surface_below_ring">scaly</option>
+                <option value="stalk_surface_below_ring">silky</option>
+                <option value="stalk_surface_below_ring">smooth</option>
+            </select>
+        </div>
+        <div class="class">
+
+            <h3>stalk color above ring</h3>
+            <select name="stalk_color_above_ring" id="stalk_color_above_ring" required="required">
+                <option value="stalk_color_above_ring">Select</option>
+                <option value="stalk_color_above_ring">brown</option>
+                <option value="stalk_color_above_ring">buff</option>
+                <option value="stalk_color_above_ring">cinnamon</option>
+                <option value="stalk_color_above_ring">gray</option>
+                <option value="stalk_color_above_ring">orange</option>
+                <option value="stalk_color_above_ring">pink</option>
+                <option value="stalk_color_above_ring">red</option>
+                <option value="stalk_color_above_ring">white</option>
+                <option value="stalk_color_above_ring">yellow</option>
+            </select>
+
+            <h3>stalk color below ring</h3>
+            <select name="stalk_color_below_ring" id="stalk_color_below_ring" required="required">
+                <option value="stalk_color_below_ring">Select</option>
+                <option value="stalk_color_below_ring">brown</option>
+                <option value="stalk_color_below_ring">buff</option>
+                <option value="stalk_color_below_ring">cinnamon</option>
+                <option value="stalk_color_below_ring">gray</option>
+                <option value="stalk_color_below_ring">orange</option>
+                <option value="stalk_color_below_ring">pink</option>
+                <option value="stalk_color_below_ring">red</option>
+                <option value="stalk_color_below_ring">white</option>
+                <option value="stalk_color_below_ring">yellow</option>
+            </select>
+
+            <h3>veil type</h3>
+            <select name="veil_type" id="veil_type" required="required">
+                <option value="veil_type">Select</option>
+                <option value="veil_type">partial</option>
+                <option value="veil_type">universal</option>
+            </select>
+
+            <h3>veil color</h3>
+            <select name="veil_color" id="veil_color" required="required">
+                <option value="veil_color">Select</option>
+                <option value="veil_color">brown</option>
+                <option value="veil_color">orange</option>
+                <option value="veil_color">white</option>
+                <option value="veil_color">yellow</option>
+            </select>
+
+            <h3>ring number</h3>
+            <select name="ring_number" id="ring_number" required="required">
+                <option value="ring_number">Select</option>
+                <option value="ring_number">none</option>
+                <option value="ring_number">one</option>
+                <option value="ring_number">two</option>
+            </select>
+
+            <h3>ring type</h3>
+            <select name="ring_type" id="ring_type" required="required">
+                <option value="ring_type">Select</option>
+                <option value="ring_type">cobwebby</option>
+                <option value="ring_type">evanescent</option>
+                <option value="ring_type">flaring</option>
+                <option value="ring_type">large</option>
+                <option value="ring_type">pendant</option>
+                <option value="ring_type">sheathing</option>
+                <option value="ring_type">zone</option>
+                <option value="ring_type">none</option>
+            </select>
+        </div>
+        <div class="class">
+
+            <h3>spore print color</h3>
+            <select name="spore_print_color" id="spore_print_color" required="required">
+                <option value="spore_print_color">Select</option>
+                <option value="spore_print_color">black</option>
+                <option value="spore_print_color">brown</option>
+                <option value="spore_print_color">buff</option>
+                <option value="spore_print_color">chocolate</option>
+                <option value="spore_print_color">green</option>
+                <option value="spore_print_color">orange</option>
+                <option value="spore_print_color">purple</option>
+                <option value="spore_print_color">white</option>
+                <option value="spore_print_color">yellow</option>
+            </select>
+
+            <h3>population</h3>
+            <select name="population" id="population" required="required">
+                <option value="population">Select</option>
+                <option value="population">abundant</option>
+                <option value="population">clustered</option>
+                <option value="population">numerous</option>
+                <option value="population">scattered</option>
+                <option value="population">several</option>
+                <option value="population">solitary</option>
+            </select>
+
+             <h3>habitat</h3>
+            <select name="habitat" id="habitat" required="required">
+                <option value="habitat">Select</option>
+                <option value="habitat">grasses</option>
+                <option value="habitat">leaves</option>
+                <option value="habitat">meadows</option>
+                <option value="habitat">paths</option>
+                <option value="population">urban</option>
+                <option value="population">waste</option>
+                <option value="population">woods</option>
+            </select>
+        </div>
+        
+        </div>
+
+    </div>
+
+    <div class="button">
+        <button type="submit" class="btn">Predict</button>
+    </div>
+
+    <img class="animated-gif" src="https://media3.giphy.com/media/bSEkPdQfsSHCMYn7fD/giphy.gif?cid=ecf05e47wp01y73rshqetxi4bymajcjkfww63anqu5yvq9w9&rid=giphy.gif&ct=g">
+
+
+
+            
+
+        </form>
+        <br>
+        <br>
+         
+
+    <style>
+
+        body {  
+            background: url('https://images.pexels.com/photos/1068876/pexels-photo-1068876.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height:90vh;
+            margin: 0;
+            padding: 0;
+        }
+         
+
+        
+
+        .banner-text h2{
+            font-size: 60px;
+            color: white;
+            text-align: center;
+            font-family: 'Akronim', cursive;
+
+
+        }
+
+        .container{
+            width:900px;
+            margin-top: -55px;
+            margin-bottom: 50px;
+            margin-right: 70px;
+            margin-left: 550px;
+            display: table;
+            box-sizing: border-box;
+            font-family: 'Almendra Display', cursive;
+        font-size: 20px;
+        }
+
+        .rows{
+            margin:10px 0;
+        }
+
+        .class{
+            display: table-cell;
+            padding: 10px;
+            width: 33.3333;
+            text-align: center;
+            color: white;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .button{
+            margin-top: -250px;
+            margin-left: 1250px;
+        }
+
+       
+        img.animated-gif{
+            width: 50px;
+            height: 50px;
+            margin-top: -705px;
+            margin-left: 625px;
+            margin-bottom: 695px;
+        }
+
+
+        
+        .btn{
+            width: 150px;
+            height: 70px;
+            text-orientation: none;
+            display: inline-block;
+            margin: 0 10px;
+            padding: 12px 0;
+            border-radius: 14px;
+            border: .5px solid #fff;
+            font-size: 25px;
+            font-family: 'Mate SC', serif;
+        	
+        }
+
+        .btn:hover{
+            color: #255784
+        }
+
+        
+        #cap_shape {
+            font-size:25px;
+            width: 110px;
+            height: 45px;
+            top:0px;
+            text-align: center;
+            border-radius: 14px;
+            
+
+        }
+
+        
+        #cap_surface {
+            font-size:25px;
+            width: 110px;
+            height: 45px;
+            top:0px;
+            text-align: center;
+            border-radius: 14px;
+            
+        }
+        
+        #cap_color {
+            font-size:25px;
+            width: 110px;
+            height: 45px;
+            top:0px;
+            text-align: center;
+            border-radius: 14px;
+        }
+        
+        #bruises {
+            font-size: 25px;
+            width: 110px;
+            height: 45px;
+            top:0px;
+            text-align: center;
+            border-radius: 14px;
+        }
+
+
+
+        
+        
+        
+        #odor
+        {
+            font-size: 25px;
+            width: 110px;
+            height: 45px;
+            top:0px;
+            text-align: center;
+            border-radius: 14px;
+      
+        }
+
+        #gill_attachment
+        {
+            font-size: 25px;
+            width: 110px;
+            height: 45px;
+            top:0px;
+            text-align: center;
+            border-radius: 14px;
+        }
+
+
+       
+        
+        
+        #gill_spacing
+        {
+            font-size: 25px;
+            width: 110px;
+            height: 45px;
+            top:0px;
+            text-align: center;
+            border-radius: 14px;
+        }
+        
+       
+        
+        #gill_size 
+        {
+            font-size: 25px;
+            width: 110px;
+            height: 45px;
+            top:0px;
+            text-align: center;
+            border-radius: 14px;
+        }
+        
+        
+        #gill_color {
+            font-size: 25px;
+            width: 110px;
+            height: 45px;
+            top:0px;
+            text-align: center;
+            border-radius: 14px;
+        }
+        
+        
+        #stalk_shape{
+            font-size: 25px;
+            width: 110px;
+            height: 45px;
+            top:0px;
+            text-align: center;
+            border-radius: 14px;
+        }
+        
+        
+        #stalk_root{
+            font-size: 25px;
+            width: 110px;
+            height: 45px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;  }
+        
+        #stalk_surface_above_ring {
+            font-size: 25px;
+            font-size: 25px;
+            width: 110px;
+            height: 45px;
+            top:0px;
+            text-align: center;
+            border-radius: 14px;
+        }
+
+        
+
+        #stalk_surface_below_ring{
+            font-size: 25px;
+            width: 110px;
+            height: 45px;
+            top:0px;
+            text-align: center;
+            border-radius: 14px;
+        }
+
+      
+        
+        #stalk_color_below_ring{
+            font-size: 25px;
+            width: 110px;
+            height: 45px;
+            top:0px;
+            text-align: center;
+            border-radius: 14px;
+        }
+
+
+        #stalk_color_above_ring{
+            font-size: 25px;
+            width: 110px;
+            height: 45px;
+            top:0px;
+            text-align: center;
+            border-radius: 14px;
+        }
+
+        #veil_type{
+            font-size: 25px;
+            width: 110px;
+            height: 45px;
+            top:0px;
+            text-align: center;
+            border-radius: 14px;
+        }
+
+
+        #veil_color{
+            font-size: 25px;
+            width: 110px;
+            height: 45px;
+            top:0px;
+            text-align: center;
+            border-radius: 14px;
+        }
+
+
+        #ring_number{
+            font-size: 25px;
+            width: 110px;
+            height: 45px;
+            top:0px;
+            text-align: center;
+            border-radius: 14px;
+        }
+
+        #ring_type{
+            font-size: 25px;
+            width: 110px;
+            height: 45px;
+            top:0px;
+            text-align: center;
+            border-radius: 14px;
+        }
+
+
+        #spore_print_color{
+            font-size: 25px;
+            width: 110px;
+            height: 45px;
+            top:0px;
+            text-align: center;
+            border-radius: 14px;
+        }
+
+
+        #population{
+            font-size: 25px;
+            width: 110px;
+            height: 45px;
+            top:0px;
+            text-align: center;
+            border-radius: 14px;
+        }
+
+
+        #habitat{
+            font-size: 25px;
+            width: 110px;
+            height: 45px;
+            top:0px;
+            text-align: center;
+            border-radius: 14px;
+        }
+
+       
+    </style>
+               
+
+    
+</body>
+
+</html>
